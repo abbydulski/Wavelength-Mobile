@@ -1,7 +1,9 @@
 import React from 'react';
+import { AppRegistry } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text } from 'react-native';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { LoginScreen } from './screens/LoginScreen';
 import { SignupScreen } from './screens/SignupScreen';
@@ -98,10 +100,14 @@ const RootNavigator = () => {
   );
 };
 
-export default function App() {
+function App() {
   return (
     <AuthProvider>
       <RootNavigator />
     </AuthProvider>
   );
 }
+
+AppRegistry.registerComponent('wavelength-mobile', () => App);
+
+export default App;
